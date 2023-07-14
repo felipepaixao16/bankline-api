@@ -17,10 +17,15 @@ public class Movimentacao {
 
     @Column(name = "data_hora")
     private LocalDateTime dataHora;
+
     private String descricao;
+
     private Double valor;
 
     @Enumerated(EnumType.STRING) // Aqui informamos que vamos salvar o próprio valor literal, ou seja,  se houver
     // uma movimentação do tipo Receita, terá uma coluna do tipo "MovimentacaoTipo" e vai salvar Recita.
     private MovimentacaoTipo tipo;
+
+    @Column(name = "id_conta")
+    private Integer idConta;
 }
