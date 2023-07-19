@@ -10,11 +10,7 @@ import com.dio.bank.bankline.api.repository.MovimentacaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Time;
-import java.time.Clock;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Service
 public class MovimentacaoService {
@@ -32,8 +28,7 @@ public class MovimentacaoService {
         if(novaMovimentacao.getTipo() == MovimentacaoTipo.DESPESA)
             valor = valor * -1;
 
-        movimentacao.setData(LocalDate.now());
-        movimentacao.setTime(LocalTime.now(Clock.systemUTC()));
+        movimentacao.setDataHora(LocalDateTime.now());
         movimentacao.setDescricao(novaMovimentacao.getDescricao());
         movimentacao.setIdConta(novaMovimentacao.getIdConta());
         movimentacao.setTipo(novaMovimentacao.getTipo());
